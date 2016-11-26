@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% if page.title != '' %}
+            {{ page.title }} | 
+        {% endif %}
+        {{ site.name }}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 新浪微博 -->
+    <meta property="wb:webmaster" content="14a2a3732ad96658" />
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/back_to_top.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/pygment.css" rel="stylesheet">
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.name }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ site.baseurl }}/">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/archive.html">Archive</a></li>
+                    <li><a href="{{ site.baseurl }}/categories.html">Category</a></li>
+                    <li><a href="{{ site.baseurl }}/leetcode.html">LeetCode</a></li>
+                    <li><a href="{{ site.baseurl }}/about.html">About</a></li>
+                    <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+                    {% if site.github != '' %}
+                        <li><a href="https://github.com{{ site.github }}">Github</a></li>
+                    {% endif %}
+                </ul>
+                <!--
+                <div class="navbar-form navbar-right">
+                    {% include search_baidu.html %}
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+</div>

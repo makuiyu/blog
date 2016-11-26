@@ -1,0 +1,70 @@
+{% include header.html %}
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-3 hidden-xs">
+      {% include sidebar.html %}
+    </div>
+    
+    <div class="col-md-9">
+      <div class="article">
+        <div class="well">
+
+          <h3>
+            <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
+            <small>{{ page.date | date: "%b %-d, %Y" }}</small>
+          </h3>
+          
+          {% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags.html#{{ tag }}" class="btn btn-default btn-xs">
+              <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;{{ tag }}
+            </a>
+          {% endfor %}
+          <p/>
+
+          <div class="post-content">
+            {{ content }}
+          </div>
+          
+          {% if page.reprint == true %}
+            <p>转载请说明出处：<a href="{{ site.baseurl }}{{ page.url }}">{{ site.website }}{{ page.url }}</a></p>
+          {% endif %}
+
+          <p class="text-right">
+            {% include share_post.html %}
+          </p>
+
+          <br/>
+          <br/>
+
+          <div>
+            {% if page.previous %}
+              <p>
+                <a href="{{ site.baseurl }}{{ page.previous.url }}" class="btn btn-default btn-xs">
+                  <span class="glyphicon glyphicon-chevron-up"></span>&nbsp;上&nbsp;一&nbsp;篇
+                </a>
+                <a href="{{ site.baseurl }}{{ page.previous.url }}">{{ page.previous.title }}</a>
+              </p>
+            {% endif %}
+            {% if page.next %}
+              <p>
+                <a href="{{ site.baseurl }}{{ page.next.url }}" class="btn btn-default btn-xs">
+                  <span class="glyphicon glyphicon-chevron-down"></span>&nbsp;下&nbsp;一&nbsp;篇
+                </a>
+                <a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }}</a>
+              </p>
+            {% endif %}
+          </div>
+          
+          {% if site.comments == true and page.comments == true and site.disqus != '' %}
+            <p class="author">{% include comment_uyan.html %}</div></p>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include footer.html %}

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Tags
+---
+
+<div class="well">
+    {% for tag in site.tags %}
+        {% if tag[0] != 'blog' %}
+            <div id="{{ tag[0] }}"></div>
+            <h1>{{ tag[0] }} ({{ tag[1].size }})</h1>
+            <ul>
+                {% for post in tag[1] %}
+                    <li>
+                        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                        <small> --- {{ post.date | date: "%b %-d, %Y" }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+</div>

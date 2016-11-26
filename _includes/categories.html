@@ -1,0 +1,9 @@
+{% for cat in site.categories %}
+    {% if cat[0] != 'blog' %}
+        <li>
+            <a href="{{ site.baseurl }}/categories.html#{{ cat[0] }}">
+                {{ cat[0] }} ({{ cat[1].size }})
+            </a>
+        </li>
+    {% endif %}
+{% endfor %}
