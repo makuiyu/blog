@@ -1,0 +1,21 @@
+---
+layout: default
+title: Trekking
+---
+
+<div class="well">
+    {% for cat in site.categories %} 
+        {% if cat[0] == 'Trekking' %} 
+            <div id="{{ cat[0] }}"></div>
+            <h1>{{ cat[0] }} ({{ cat[1].size }})</h1>
+            <ul>
+                {% for post in cat[1] %}
+                    <li>
+                        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                        <small> --- {{ post.date | date: "%b %-d, %Y" }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+</div>
