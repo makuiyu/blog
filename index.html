@@ -24,7 +24,7 @@ title: ''
                     {% if forloop.last == false %}, {% endif %}
                 {% endfor %}
             </p>
-			<p>
+            <p>
                 {{ post.excerpt | strip_html | strip_newlines | truncate: 170}}
                 <a href="{{ site.baseurl }}{{ post.url }}"> More &raquo;</a>
             </p>
